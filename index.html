@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variables de color (Paleta Médica/Profesional) */
+        /* Variables de color */
         :root {
             --azul-marino: #0A2540;
             --azul-medio: #173f6a;
@@ -22,94 +22,54 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { color: var(--gris-texto); line-height: 1.6; background-color: var(--blanco); scroll-behavior: smooth; }
+        body { color: var(--gris-texto); line-height: 1.6; background-color: var(--blanco); scroll-behavior: smooth; overflow-x: hidden; }
         h1, h2, h3, h4 { color: var(--azul-marino); line-height: 1.2; }
         .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
         /* Botones Universales */
         .cta-button {
-            display: inline-block;
-            background-color: var(--verde-medico);
-            color: var(--blanco);
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 168, 150, 0.3);
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
+            display: inline-block; background-color: var(--verde-medico); color: var(--blanco); padding: 16px 32px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 168, 150, 0.3); transition: all 0.3s ease; border: none; cursor: pointer; text-align: center;
         }
         .cta-button:hover { background-color: var(--verde-hover); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0, 168, 150, 0.4); }
         .btn-secondary { background-color: var(--gris-claro); color: var(--gris-texto); box-shadow: none; }
         .btn-secondary:hover { background-color: #a0aec0; color: white; }
 
-        /* ================= Hero Section (Actualizada con fondo difuminado) ================= */
-        .hero { 
-            position: relative;
-            color: var(--blanco); 
-            padding-bottom: 4rem; 
-            overflow: hidden; /* Evita que el borde difuminado se desborde */
-        }
-
-        /* Imagen de fondo difuminada */
+        /* Hero Section */
+        .hero { position: relative; color: var(--blanco); padding-bottom: 4rem; overflow: hidden; min-height: 700px; }
         .hero::before {
-            content: "";
-            position: absolute;
-            top: -15px; left: -15px; right: -15px; bottom: -15px; /* Expandido para ocultar el borde blanco del blur */
-            /* PUEDES CAMBIAR ESTE ENLACE POR TU PROPIA IMAGEN JPG */
+            content: ""; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
             background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); 
-            background-size: cover;
-            background-position: center;
-            filter: blur(8px); /* Qué tan difuminado lo quieres */
-            z-index: 1;
+            background-size: cover; background-position: center; filter: blur(3px); z-index: 1;
         }
+        .hero::after { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10, 37, 64, 0.75); z-index: 2; }
+        .hero .container { position: relative; z-index: 3; }
+        .header-logo-container { text-align: left; padding-top: 2rem; margin-bottom: 3rem; }
+        .logo-img { max-width: 180px; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .hero h1 { color: var(--blanco); font-size: 2.8rem; font-weight: 900; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; font-weight: 300; opacity: 0.95; max-width: 500px; }
 
-        /* Capa oscura para que el texto blanco sea legible */
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(10, 37, 64, 0.82); /* Azul marino al 82% de opacidad */
-            z-index: 2;
-        }
-
-        /* Contenido por encima de los fondos */
-        .hero .container {
-            position: relative;
-            z-index: 3;
-        }
-
-        .header-logo-container { text-align: center; padding-top: 2rem; margin-bottom: 2rem; }
-        .logo-img { max-width: 180px; height: auto; border-radius: 8px; }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-        .hero h1 { color: var(--blanco); font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; font-weight: 300; opacity: 0.95; }
-
-        /* Formulario Multi-Step */
-        .form-container { background-color: var(--blanco); padding: 2.5rem; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); color: var(--azul-marino); min-height: 380px; position: relative;}
+        /* Formulario */
+        .form-container { background-color: var(--blanco); padding: 2.5rem; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); color: var(--azul-marino); position: relative;}
         .form-step { display: none; animation: fadeIn 0.4s ease-in-out; }
         .form-step.active { display: block; }
-        .step-indicator { text-align: center; font-size: 0.85rem; color: var(--gris-texto); margin-bottom: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
-        .form-container h3 { text-align: center; margin-bottom: 1.5rem; font-size: 1.4rem; color: var(--azul-marino); }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.95rem; }
-        .form-input, .form-select { width: 100%; padding: 14px; border: 2px solid var(--gris-claro); border-radius: 6px; font-size: 1rem; transition: border-color 0.3s; background-color: #f8fafc; cursor: pointer; }
+        .step-indicator { text-align: center; font-size: 0.9rem; color: var(--verde-medico); margin-bottom: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;}
+        .form-container h3 { text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--azul-marino); }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.9rem; }
+        .form-input, .form-select { width: 100%; padding: 14px; border: 2px solid var(--gris-claro); border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; background-color: #f8fafc; }
         .form-input:focus, .form-select:focus { outline: none; border-color: var(--verde-medico); background-color: white; }
-        .button-group { display: flex; gap: 10px; margin-top: 1.5rem; }
+        .button-group { display: flex; gap: 10px; margin-top: 2rem; }
         .button-group .cta-button { flex: 1; padding: 14px; font-size: 1rem; }
         .spam-disclaimer { text-align: center; font-size: 0.8rem; color: var(--gris-texto); margin-top: 1rem; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
-
-        /* Social Proof Bar */
-        .social-proof-bar { background-color: var(--azul-claro); padding: 2rem 0; border-bottom: 1px solid var(--gris-claro); }
-        .social-proof-grid { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 1.5rem; text-align: center; }
-        .proof-item { color: var(--azul-marino); font-weight: 700; font-size: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
-        .proof-item i { color: var(--verde-medico); font-size: 1.8rem; }
+        /* Cinta Transportadora */
+        .marquee-section { background-color: var(--azul-claro); padding: 1.5rem 0; border-bottom: 1px solid var(--gris-claro); overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-flex; animation: scroll 25s linear infinite; }
+        .marquee-item { display: inline-flex; align-items: center; gap: 0.8rem; color: var(--azul-marino); font-weight: 700; font-size: 1.2rem; margin: 0 2rem; }
+        .marquee-item i { color: var(--verde-medico); font-size: 1.8rem; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* Secciones Generales */
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 3rem; font-weight: 700; }
@@ -117,23 +77,44 @@
         .card { background: var(--blanco); padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); }
         .card i { font-size: 3rem; margin-bottom: 1.5rem; }
+        
         .pain-section { background-color: #F8FAFC; padding: 5rem 0; }
         .pain-section .card i { color: var(--rojo-alerta); }
-        .solution-section { padding: 5rem 0; }
+        .pain-section .card h3 { color: var(--azul-marino); }
+        
+        /* SECCIÓN SOLUCIÓN CON FONDO AZUL MARINO */
+        .solution-section { background-color: var(--azul-marino); color: var(--blanco); padding: 5rem 0; }
+        .solution-section .section-title { color: var(--blanco); }
+        .solution-section .card { background: var(--blanco); color: var(--gris-texto); }
+        .solution-section .card h3 { color: var(--azul-marino); }
         .solution-section .card i { color: var(--verde-medico); }
-        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
 
+        /* Estilos para los Logos de Hospitales (FIJOS) */
+        .hospital-banner-text { text-align: center; margin-top: 4rem; font-size: 1.1rem; color: var(--azul-claro); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .hospital-logos { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 3rem; margin-top: 2rem; }
+        
+        /* Filtro para que los logos se vean blancos/gris claro sobre el fondo azul */
+        .hospital-logos img { 
+            max-height: 60px; /* Un poco más grandes para que se noten */
+            max-width: 180px;
+            object-fit: contain;
+            filter: grayscale(100%) brightness(500%); /* Convierte a blanco */
+            opacity: 0.8; 
+            transition: all 0.3s ease; 
+        }
+        .hospital-logos img:hover { opacity: 1; transform: scale(1.05); }
+        
         /* FAQ */
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { margin-bottom: 1.5rem; background: var(--blanco); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 4px solid var(--verde-medico); }
         .faq-item h4 { margin-bottom: 0.8rem; color: var(--azul-marino); font-weight: 700; font-size: 1.1rem; }
 
         /* Testimonios */
-        .testimonials { background-color: var(--azul-marino); color: var(--blanco); padding: 5rem 0; }
-        .testimonials .section-title { color: var(--blanco); }
-        .testimonial-card { background: rgba(255, 255, 255, 0.05); padding: 2rem; border-left: 4px solid var(--verde-medico); border-radius: 0 8px 8px 0; }
+        .testimonials { background-color: #F8FAFC; color: var(--gris-texto); padding: 5rem 0; }
+        .testimonials .section-title { color: var(--azul-marino); }
+        .testimonial-card { background: var(--blanco); padding: 2rem; border-left: 4px solid var(--verde-medico); border-radius: 0 8px 8px 0; display: flex; flex-direction: column; justify-content: space-between; height: 100%; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .testimonial-card p { font-style: italic; margin-bottom: 1rem; }
-        .testimonial-card strong { color: var(--verde-medico); }
+        .testimonial-card strong { color: var(--verde-medico); margin-top: auto;}
 
         /* Footer */
         footer { background-color: var(--azul-medio); color: var(--blanco); text-align: center; padding: 3rem 2rem; }
@@ -143,12 +124,16 @@
 
         /* Responsividad */
         @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .header-logo-container { text-align: center; margin-bottom: 2rem; }
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero-text { text-align: center; }
-            .hero h1 { font-size: 2rem; }
-            .hero { padding-bottom: 2rem; }
-            .social-proof-grid { flex-direction: column; gap: 1rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { margin: 0 auto 30px auto; }
+            .hero { padding-bottom: 2rem; min-height: auto; }
             .button-group { flex-direction: column-reverse; }
+            .marquee-item { font-size: 1rem; margin: 0 1rem; }
+            .hospital-logos { gap: 1.5rem; }
+            .hospital-logos img { max-height: 40px; } /* Un poco más chicos en cel */
         }
     </style>
 </head>
@@ -163,97 +148,79 @@
             <div class="hero-grid">
                 <div class="hero-text">
                     <h1>No permitas que una emergencia médica destruya el patrimonio de tu familia.</h1>
-                    <p>Soy Alejandro Rojas, asesor especializado. Te ayudo a blindar tus ahorros y asegurar atención en los mejores hospitales privados con un plan de Gastos Médicos Mayores a tu medida. Solicita tu estudio gratuito hoy.</p>
+                    <p>Soy Alejandro Rojas, asesor especializado. Te ayudo a blindar tus ahorros y asegurar atención en los mejores hospitales privados con un plan de Gastos Médicos Mayores a tu medida.</p>
                 </div>
 
                 <div class="form-container" id="formulario-principal">
                     <form action="https://formspree.io/f/maqddrve" method="POST" id="leadForm">
-                        
                         <div class="form-step active" id="step1">
-                            <div class="step-indicator">Paso 1 de 4</div>
-                            <h3>¿Cuál es tu rango de edad?</h3>
+                            <div class="step-indicator">Paso 1 de 2: Tu Perfil</div>
+                            <h3>Diseñemos tu plan ideal</h3>
                             <div class="form-group">
-                                <select id="edad" name="Rango_Edad" class="form-select" required>
-                                    <option value="" disabled selected>Selecciona tu edad...</option>
+                                <label class="form-label">Tu rango de edad:</label>
+                                <select name="Rango_Edad" class="form-select" required>
+                                    <option value="" disabled selected>Seleccionar...</option>
                                     <option value="25-30 años">25-30 años</option>
                                     <option value="31-40 años">31-40 años</option>
                                     <option value="41-50 años">41- 50 años</option>
                                     <option value="Mas de 50 años">Más de 50 años</option>
                                 </select>
                             </div>
-                            <div class="button-group" style="display: block;">
-                                <button type="button" class="cta-button" style="width: 100%;" onclick="nextStep(1)">Siguiente <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="form-step" id="step2">
-                            <div class="step-indicator">Paso 2 de 4</div>
-                            <h3>¿Cuál es tu ingreso mensual aproximado?</h3>
                             <div class="form-group">
-                                <select id="ingreso" name="Ingreso_Mensual" class="form-select" required>
-                                    <option value="" disabled selected>Selecciona tu ingreso...</option>
+                                <label class="form-label">Ingreso mensual aproximado:</label>
+                                <select name="Ingreso_Mensual" class="form-select" required>
+                                    <option value="" disabled selected>Seleccionar...</option>
                                     <option value="Menos de 20k">Menos de 20k</option>
                                     <option value="20k - 50k">20k - 50k</option>
                                     <option value="Mas de 50k">Más de 50k</option>
                                 </select>
                             </div>
-                            <div class="button-group">
-                                <button type="button" class="cta-button btn-secondary" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Atrás</button>
-                                <button type="button" class="cta-button" onclick="nextStep(2)">Siguiente <i class="fas fa-arrow-right"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="form-step" id="step3">
-                            <div class="step-indicator">Paso 3 de 4</div>
-                            <h3>¿Cuánto te gustaría aportar mensualmente a tu protección?</h3>
                             <div class="form-group">
-                                <select id="aportacion" name="Aportacion_Mensual" class="form-select" required>
-                                    <option value="" disabled selected>Selecciona una aportación...</option>
+                                <label class="form-label">Aportación mensual deseada:</label>
+                                <select name="Aportacion_Mensual" class="form-select" required>
+                                    <option value="" disabled selected>Seleccionar...</option>
                                     <option value="2500 - 4000">2500 - 4000</option>
                                     <option value="5000 - 8000">5000 - 8000</option>
                                     <option value="Mas de 10000">Más de 10000</option>
                                 </select>
                             </div>
-                            <div class="button-group">
-                                <button type="button" class="cta-button btn-secondary" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Atrás</button>
-                                <button type="button" class="cta-button" onclick="nextStep(3)">Último paso <i class="fas fa-arrow-right"></i></button>
+                            <div class="button-group" style="display: block;">
+                                <button type="button" class="cta-button" style="width: 100%;" onclick="nextStep(1)">CONTINUAR <i class="fas fa-arrow-right"></i></button>
                             </div>
                         </div>
 
-                        <div class="form-step" id="step4">
-                            <div class="step-indicator">Paso 4 de 4</div>
-                            <h3>¿A dónde te enviamos tu cotización?</h3>
-                            
-                            <div class="form-group" style="margin-bottom: 1rem;">
-                                <input type="text" id="nombre" name="Nombre_Completo" class="form-input" required placeholder="Nombre completo">
+                        <div class="form-step" id="step2">
+                            <div class="step-indicator">Paso 2 de 2: Tus Datos</div>
+                            <h3>¿Dónde te envío tu estudio?</h3>
+                            <div class="form-group">
+                                <input type="text" name="Nombre_Completo" class="form-input" required placeholder="Nombre completo*">
                             </div>
-                            <div class="form-group" style="margin-bottom: 1rem;">
-                                <input type="tel" id="whatsapp" name="Whatsapp" class="form-input" required placeholder="Número de WhatsApp">
+                            <div class="form-group">
+                                <input type="tel" name="Whatsapp" class="form-input" required placeholder="WhatsApp (10 dígitos)*">
                             </div>
-                            <div class="form-group" style="margin-bottom: 1rem;">
-                                <input type="email" id="email" name="Email" class="form-input" required placeholder="Correo electrónico">
+                            <div class="form-group">
+                                <input type="email" name="Email" class="form-input" required placeholder="Correo electrónico*">
                             </div>
-
                             <div class="button-group">
-                                <button type="button" class="cta-button btn-secondary" onclick="prevStep(4)"><i class="fas fa-arrow-left"></i> Atrás</button>
-                                <button type="submit" class="cta-button">VER MI COTIZACIÓN</button>
+                                <button type="button" class="cta-button btn-secondary" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Atrás</button>
+                                <button type="submit" class="cta-button">SOLICITAR MI COTIZACIÓN</button>
                             </div>
-                            <p class="spam-disclaimer"><i class="fas fa-lock"></i> Tus datos son confidenciales y seguros.</p>
+                            <p class="spam-disclaimer"><i class="fas fa-lock"></i> Tus datos están 100% seguros.</p>
                         </div>
-
                     </form>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="social-proof-bar">
-        <div class="container" style="padding-top: 0; padding-bottom: 0;">
-            <div class="social-proof-grid">
-                <div class="proof-item"><i class="fas fa-medal"></i> +10 Años de Experiencia</div>
-                <div class="proof-item"><i class="fas fa-users"></i> +500 Familias Protegidas</div>
-                <div class="proof-item"><i class="fas fa-shield-alt"></i> Respaldo Sólido GNP</div>
-            </div>
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <div class="marquee-item"><i class="fas fa-medal"></i> +10 Años de Experiencia</div>
+            <div class="marquee-item"><i class="fas fa-users"></i> +500 Familias Protegidas</div>
+            <div class="marquee-item"><i class="fas fa-shield-alt"></i> Respaldo Sólido GNP</div>
+            <div class="marquee-item"><i class="fas fa-medal"></i> +10 Años de Experiencia</div>
+            <div class="marquee-item"><i class="fas fa-users"></i> +500 Familias Protegidas</div>
+            <div class="marquee-item"><i class="fas fa-shield-alt"></i> Respaldo Sólido GNP</div>
         </div>
     </div>
 
@@ -276,6 +243,15 @@
                 <div class="card"><i class="fas fa-shield-alt"></i><h3>Protección Financiera Total</h3><p>Cubrimos desde honorarios médicos y cirugías, hasta medicamentos de alta especialidad y rehabilitación.</p></div>
                 <div class="card"><i class="fas fa-user-md"></i><h3>Acompañamiento Personalizado</h3><p>No eres un número de póliza. Yo me encargo de la burocracia para que tú solo te enfoques en recuperar tu salud.</p></div>
             </div>
+
+            <div class="hospital-banner-text">Acceso directo a la mejor red hospitalaria de México</div>
+            <div class="hospital-logos">
+             
+                <img src="image_3.png" alt="Centro Médico ABC">
+                <img src="image_2.png" alt="Star Médica">
+                <img src="image_0.png" alt="SMM">
+            </div>
+
         </div>
     </section>
 
@@ -292,18 +268,19 @@
 
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">Lo que dicen mis clientes cuando más lo necesitaron</h2>
+            <h2 class="section-title">Lo que dicen mis clientes</h2>
             <div class="grid-3">
-                <div class="testimonial-card"><p>"Alejandro nos asesoró perfecto. Cuando mi esposo necesitó una cirugía de urgencia, todo el proceso de ingreso al hospital fue rápido y sin desembolsar los ahorros de nuestra vida. Su atención en esos momentos de estrés fue invaluable."</p><strong>— Familia Martínez</strong></div>
-                <div class="testimonial-card"><p>"Pensé que un seguro de gastos médicos era un lujo inalcanzable. Alejandro diseñó un plan que se ajustó a mi presupuesto y hoy duermo mucho más tranquilo sabiendo que estoy protegido."</p><strong>— Roberto Gómez</strong></div>
+                <div class="testimonial-card"><p>"Alejandro nos asesoró perfecto. Cuando mi esposo necesitó una cirugía de urgencia, todo el proceso fue rápido y sin desembolsar los ahorros de nuestra vida. Su atención fue invaluable."</p><strong>— Familia Martínez</strong></div>
+                <div class="testimonial-card"><p>"Pensé que un seguro GMM era un lujo inalcanzable. Alejandro diseñó un plan que se ajustó a mi presupuesto y hoy duermo mucho más tranquilo sabiendo que estoy protegido."</p><strong>— Roberto Gómez</strong></div>
+                <div class="testimonial-card"><p>"Excelente servicio. Alejandro me explicó todo con peras y manzanas, sin letras chiquitas. Ahora mi familia tiene la mejor cobertura en los mejores hospitales."</p><strong>— Claudia R.</strong></div>
             </div>
         </div>
     </section>
 
-    <section class="solution-section" style="text-align: center;">
+    <section class="solution-section" style="text-align: center; background-color: var(--blanco); color: var(--azul-marino);">
         <div class="container">
-            <h2>El mejor momento para comprar un seguro es cuando no lo necesitas.</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">Protege tu futuro hoy. Da el primer paso y diseñemos juntos tu escudo financiero.</p>
+            <h2 style="color: var(--azul-marino);">El mejor momento para comprar un seguro es cuando no lo necesitas.</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; color: var(--gris-texto);">Protege tu futuro hoy. Da el primer paso y diseñemos juntos tu escudo financiero.</p>
             <a href="#formulario-principal" class="cta-button">SUBIR A COTIZAR AHORA</a>
         </div>
     </section>
@@ -322,22 +299,19 @@
     <script>
         function nextStep(currentStep) {
             const currentDiv = document.getElementById(`step${currentStep}`);
-            const inputs = currentDiv.querySelectorAll('select, input');
+            const inputs = currentDiv.querySelectorAll('select:not([style*="display: none"]), input:not([style*="display: none"])');
             let isValid = true;
             
             inputs.forEach(input => {
-                if (!input.value) {
+                if (!input.value || input.value === "") {
                     isValid = false;
-                    input.style.borderColor = 'red';
+                    input.style.borderColor = '#E53E3E';
                 } else {
                     input.style.borderColor = '#CBD5E0';
                 }
             });
 
-            if (!isValid) {
-                alert("Por favor, selecciona una opción o llena el campo para continuar.");
-                return;
-            }
+            if (!isValid) return;
 
             currentDiv.classList.remove('active');
             document.getElementById(`step${currentStep + 1}`).classList.add('active');
