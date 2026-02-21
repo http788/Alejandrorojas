@@ -10,63 +10,40 @@
     <style>
         /* Variables de color */
         :root {
-            --azul-marino: #0A2540;
-            --azul-medio: #173f6a;
-            --azul-claro: #E6F0FA;
-            --verde-medico: #00A896;
-            --verde-hover: #028C7D;
-            --blanco: #FFFFFF;
-            --gris-texto: #4A5568;
-            --gris-claro: #CBD5E0;
-            --rojo-alerta: #E53E3E;
+            --azul-marino: #0A2540; --azul-medio: #173f6a; --azul-claro: #E6F0FA;
+            --verde-medico: #00A896; --verde-hover: #028C7D; --blanco: #FFFFFF;
+            --gris-texto: #4A5568; --gris-claro: #CBD5E0; --rojo-alerta: #E53E3E;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
         body { color: var(--gris-texto); line-height: 1.6; background-color: var(--blanco); scroll-behavior: smooth; overflow-x: hidden; padding-top: 75px; }
         h1, h2, h3, h4 { color: var(--azul-marino); line-height: 1.2; }
         .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
 
-        /* ================= MENÚ FIJO Y LOGO ================= */
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-            z-index: 1000; padding: 12px 0; transition: all 0.3s ease;
-        }
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.1); z-index: 1000; padding: 12px 0; transition: all 0.3s ease; }
         .navbar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
-        
-        .navbar-brand {
-            display: flex; align-items: center; gap: 12px;
-            font-weight: 900; color: var(--azul-marino); text-decoration: none; font-size: 1.2rem;
-        }
+        .navbar-brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--azul-marino); text-decoration: none; font-size: 1.2rem; }
         .navbar-logo { max-height: 45px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        
-        .navbar-btn {
-            background-color: var(--verde-medico); color: var(--blanco); padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s;
-        }
+        .navbar-btn { background-color: var(--verde-medico); color: var(--blanco); padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s; }
         .navbar-btn:hover { background-color: var(--verde-hover); transform: translateY(-2px); }
 
-        /* ================= BOTONES UNIVERSALES ================= */
+        /* Botones Universales */
         .cta-button { display: inline-block; background-color: var(--verde-medico); color: var(--blanco); padding: 16px 32px; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 168, 150, 0.3); transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; }
         .cta-button:hover { background-color: var(--verde-hover); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0, 168, 150, 0.4); }
         .btn-secondary { background-color: var(--gris-claro); color: var(--gris-texto); box-shadow: none; }
         .btn-secondary:hover { background-color: #a0aec0; color: white; }
 
-        /* ================= HERO SECTION ================= */
+        /* Hero Section */
         .hero { position: relative; color: var(--blanco); padding: 4rem 0; overflow: hidden; min-height: auto; display: flex; align-items: center; justify-content: center; }
-        .hero::before {
-            content: ""; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
-            background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; filter: blur(3px); z-index: 1;
-        }
+        .hero::before { content: ""; position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; filter: blur(3px); z-index: 1; }
         .hero::after { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10, 37, 64, 0.80); z-index: 2; }
         .hero .container { position: relative; z-index: 3; }
-        
         .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
         .hero h1 { color: var(--blanco); font-size: 3.2rem; font-weight: 900; margin-bottom: 25px; line-height: 1.1; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
         .hero p { font-size: 1.3rem; margin-bottom: 40px; font-weight: 300; opacity: 0.95; line-height: 1.5; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 
-        /* Estilos Internos del Formulario (Aplica para Hero y Modal) */
+        /* Formularios */
         .form-container { background-color: var(--blanco); padding: 2.5rem; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); color: var(--azul-marino); position: relative; min-height: 400px; display: flex; flex-direction: column; justify-content: center;}
         .form-step { display: none; animation: fadeIn 0.4s ease-in-out; }
         .form-step.active { display: block; }
@@ -82,36 +59,24 @@
         .spam-disclaimer { text-align: center; font-size: 0.8rem; color: var(--gris-texto); margin-top: 1rem; }
         @keyframes fadeIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
 
-        /* Mensaje de Éxito del Formulario */
-        .success-message { display: none; text-align: center; animation: fadeIn 0.5s ease-in-out; }
-        .success-message i { font-size: 4rem; color: var(--verde-medico); margin-bottom: 1rem; }
-        .success-message h3 { color: var(--azul-marino); font-size: 1.8rem; margin-bottom: 1rem; }
-        .success-message p { color: var(--gris-texto); margin-bottom: 1.5rem; }
+        /* Contenedor del Calendario GHL */
+        .ghl-calendar-direct { display: none; width: 100%; animation: fadeIn 0.5s ease-in-out; background: transparent; }
 
-        /* ================= VENTANA EMERGENTE (MODAL POP-UP) ================= */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(10, 37, 64, 0.9); backdrop-filter: blur(5px);
-            z-index: 2000; overflow-y: auto; padding: 20px 0;
-        }
-        .modal-content {
-            background-color: var(--blanco); margin: 2% auto; padding: 2.5rem;
-            border-radius: 12px; max-width: 500px; position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        /* Modal Pop-up */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 37, 64, 0.9); backdrop-filter: blur(5px); z-index: 2000; overflow-y: auto; padding: 20px 0; }
+        .modal-content { background-color: var(--blanco); margin: 2% auto; padding: 2.5rem; border-radius: 12px; max-width: 500px; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; font-weight: 700; color: var(--gris-claro); cursor: pointer; transition: color 0.3s; line-height: 1; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; font-weight: 700; color: var(--gris-claro); cursor: pointer; transition: color 0.3s; line-height: 1; z-index: 100;}
         .close-btn:hover { color: var(--rojo-alerta); }
 
-        /* Cinta Transportadora */
+        /* Marquee */
         .marquee-section { background-color: var(--azul-claro); padding: 1.5rem 0; border-bottom: 1px solid var(--gris-claro); overflow: hidden; white-space: nowrap; }
         .marquee-content { display: inline-flex; animation: scroll 25s linear infinite; }
         .marquee-item { display: inline-flex; align-items: center; gap: 0.8rem; color: var(--azul-marino); font-weight: 700; font-size: 1.2rem; margin: 0 2rem; }
         .marquee-item i { color: var(--verde-medico); font-size: 1.8rem; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        /* Secciones Generales */
+        /* Secciones */
         .section-title { text-align: center; font-size: 2rem; margin-bottom: 3rem; font-weight: 700; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
         .card { background: var(--blanco); padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s; }
@@ -134,6 +99,12 @@
         .hospital-logos img { max-height: 80px; max-width: 220px; object-fit: contain; filter: grayscale(100%) brightness(500%); opacity: 0.8; transition: all 0.3s ease; }
         .hospital-logos img:hover { opacity: 1; transform: scale(1.05); }
         
+        /* Beneficios GNP */
+        .benefits-section { background-color: var(--blanco); padding: 5rem 0; }
+        .benefits-section .card { box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #f1f5f9; }
+        .benefits-section .card i { color: var(--verde-medico); font-size: 2.5rem; }
+        .benefits-section .card h3 { font-size: 1.2rem; color: var(--azul-marino); }
+
         /* FAQ & Testimonios */
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { margin-bottom: 1.5rem; background: var(--blanco); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 4px solid var(--verde-medico); }
@@ -150,25 +121,22 @@
         .social-icons a { color: var(--blanco); font-size: 2rem; text-decoration: none; transition: color 0.3s; }
         .social-icons a:hover { color: var(--verde-medico); }
 
-        /* Responsividad Móvil */
+        /* Móvil */
         @media (max-width: 768px) {
             body { padding-top: 65px; }
             .navbar .container { padding: 0 1rem; }
             .navbar-brand { font-size: 1.1rem; }
             .navbar-logo { max-height: 35px; }
             .navbar-btn { padding: 8px 14px; font-size: 0.8rem; }
-            
             .hero { padding: 3rem 0; }
             .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .hero-text { text-align: center; }
             .hero h1 { font-size: 2.2rem; margin-bottom: 15px; }
             .hero p { font-size: 1.1rem; margin-bottom: 20px; }
-            
-            .modal-content { padding: 2rem 1.5rem; width: 90%; margin: 10% auto; }
-            .close-btn { right: 15px; top: 10px; }
-
+            .modal-content { padding: 1.5rem; width: 95%; margin: 5% auto; }
+            .close-btn { right: 10px; top: 10px; }
             .container { padding: 1.5rem; }
-            .pain-section, .solution-section, .testimonials { padding: 3rem 0; }
+            .pain-section, .solution-section, .benefits-section, .testimonials { padding: 3rem 0; }
             .section-title { font-size: 1.6rem; margin-bottom: 2rem; }
             .button-group { flex-direction: column-reverse; gap: 0.8rem; margin-top: 1.5rem; }
             .button-group .cta-button { width: 100%; font-size: 1rem; padding: 14px; }
@@ -184,7 +152,7 @@
         <div class="container" style="padding-top: 0; padding-bottom: 0;">
             <a href="#" class="navbar-brand">
                 <img src="hola.jpg" alt="Alejandro Rojas Logo" class="navbar-logo">
-                
+                Alejandro Rojas
             </a>
             <button onclick="abrirModal('manual')" class="navbar-btn">COTIZAR AHORA</button>
         </div>
@@ -199,7 +167,7 @@
                     <p>No pagues tú la cuenta del hospital. Transfiérenos el riesgo y asegura atención inmediata en los mejores hospitales privados de México con un plan a tu medida.</p>
                 </div>
 
-                <div class="form-container">
+                <div class="form-container" id="heroFormContainer">
                     <div class="form-header-text" id="heroFormHeader">
                         <h3>Diseñemos tu plan ideal</h3>
                     </div>
@@ -210,7 +178,7 @@
                             
                             <div class="form-group">
                                 <label class="form-label">Tu rango de edad:</label>
-                                <select name="Rango_Edad" class="form-select" required>
+                                <select name="Rango_Edad" class="form-select interaction-track" required>
                                     <option value="" disabled selected>Seleccionar...</option>
                                     <option value="25-30 años">25-30 años</option>
                                     <option value="31-40 años">31-40 años</option>
@@ -220,7 +188,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Ingreso mensual aproximado:</label>
-                                <select name="Ingreso_Mensual" class="form-select" required>
+                                <select name="Ingreso_Mensual" class="form-select interaction-track" required>
                                     <option value="" disabled selected>Seleccionar...</option>
                                     <option value="Menos de 20k">Menos de 20k</option>
                                     <option value="20k - 50k">20k - 50k</option>
@@ -229,7 +197,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Aportación mensual deseada:</label>
-                                <select name="Aportacion_Mensual" class="form-select" required>
+                                <select name="Aportacion_Mensual" class="form-select interaction-track" required>
                                     <option value="" disabled selected>Seleccionar...</option>
                                     <option value="2500 - 4000">2500 - 4000</option>
                                     <option value="5000 - 8000">5000 - 8000</option>
@@ -246,15 +214,15 @@
                             
                             <div class="form-group">
                                 <label class="form-label">Nombre completo:</label>
-                                <input type="text" name="Nombre_Completo" class="form-input" required placeholder="Ej. Juan Pérez">
+                                <input type="text" name="Nombre_Completo" class="form-input interaction-track" required placeholder="Ej. Juan Pérez">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">WhatsApp (10 dígitos):</label>
-                                <input type="tel" name="Whatsapp" class="form-input" required placeholder="Ej. 55 1234 5678">
+                                <input type="tel" name="Whatsapp" class="form-input interaction-track" required placeholder="Ej. 55 1234 5678">
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Correo electrónico:</label>
-                                <input type="email" name="Email" class="form-input" required placeholder="ejemplo@correo.com">
+                                <input type="email" name="Email" class="form-input interaction-track" required placeholder="ejemplo@correo.com">
                             </div>
                             <div class="button-group">
                                 <button type="button" class="cta-button btn-secondary" onclick="prevStep('hero', 2)"><i class="fas fa-arrow-left"></i> Atrás</button>
@@ -264,11 +232,7 @@
                         </div>
                     </form>
 
-                    <div class="success-message">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>¡Información enviada!</h3>
-                        <p>He recibido tus datos correctamente. En breve me pondré en contacto contigo por WhatsApp.</p>
-                    </div>
+                    <div class="ghl-calendar-direct" id="calendar_container_hero"></div>
                 </div>
 
             </div>
@@ -301,9 +265,9 @@
         <div class="container">
             <h2 class="section-title">Tu salud y tu dinero, protegidos con el respaldo ideal</h2>
             <div class="grid-3">
-                <div class="card"><i class="fas fa-hospital-user"></i><h3>Acceso Hospitalario VIP</h3><p>Atención inmediata en la mejor red de hospitales privados del país, con los especialistas más reconocidos.</p></div>
-                <div class="card"><i class="fas fa-shield-alt"></i><h3>Protección Financiera Total</h3><p>Cubrimos desde honorarios médicos y cirugías, hasta medicamentos de alta especialidad y rehabilitación.</p></div>
-                <div class="card"><i class="fas fa-user-md"></i><h3>Acompañamiento Personalizado</h3><p>No eres un número de póliza. Yo me encargo de la burocracia para que tú solo te enfoques en recuperar tu salud.</p></div>
+                <div class="card"><i class="fas fa-hospital-user"></i><h3>Pago Directo a Hospitales</h3><p>Olvídate de desembolsos millonarios. Nosotros pagamos directamente a los hospitales en convenio tu atención médica, cirugías y terapias intensivas.</p></div>
+                <div class="card"><i class="fas fa-shield-alt"></i><h3>Renovación Vitalicia</h3><p>Tu protección está garantizada de por vida. Tu póliza se renueva automáticamente sin importar tu edad o si en el futuro desarrollas una enfermedad grave.</p></div>
+                <div class="card"><i class="fas fa-user-md"></i><h3>Acompañamiento Experto</h3><p>No eres un número de póliza. Como tu asesor, yo me encargo de la burocracia para que tú solo te enfoques en recuperar tu salud en momentos críticos.</p></div>
             </div>
 
             <div class="hospital-banner-text">Acceso directo a la mejor red hospitalaria de México</div>
@@ -311,6 +275,22 @@
                 <img src="image_3.png" alt="Centro Médico ABC">
                 <img src="image_2.png" alt="Star Médica">
                 <img src="image_0.png" alt="SMM">
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--azul-marino); margin-bottom: 1rem;">¿Qué incluye exactamente tu póliza GNP?</h2>
+            <p style="text-align: center; margin-bottom: 4rem; font-size: 1.15rem; max-width: 750px; margin-left: auto; margin-right: auto; color: var(--gris-texto);">Diseñamos planes integrales que van mucho más allá de una simple emergencia hospitalaria.</p>
+            
+            <div class="grid-3">
+                <div class="card"><i class="fas fa-car-crash"></i><h3>Cero Deducible por Accidente</h3><p>En caso de sufrir un accidente cubierto por la póliza, el pago de tu deducible se elimina por completo para proteger tu economía.</p></div>
+                <div class="card"><i class="fas fa-laptop-medical"></i><h3>Médica Móvil</h3><p>Acceso exclusivo a orientación médica telefónica, videoconsultas y médicos a domicilio las 24 horas del día para urgencias menores.</p></div>
+                <div class="card"><i class="fas fa-baby"></i><h3>Apoyo Integral por Maternidad</h3><p>Respaldo económico para cubrir gastos de parto o cesárea, así como protección total para el recién nacido desde su primer día de vida.</p></div>
+                <div class="card"><i class="fas fa-globe-americas"></i><h3>Asistencia en Viajes</h3><p>Viaja con tranquilidad. Tu póliza incluye cobertura ante urgencias médicas tanto en el interior de la república como en el extranjero.</p></div>
+                <div class="card"><i class="fas fa-ambulance"></i><h3>Ambulancia Aérea y Terrestre</h3><p>En situaciones críticas donde el tiempo es vital, tienes cobertura de traslado en ambulancia terrestre o aérea para atención inmediata.</p></div>
+                <div class="card"><i class="fas fa-crutch"></i><h3>Rehabilitación y Terapias</h3><p>Cubrimos las sesiones de fisioterapia y rehabilitación que sean prescritas por tu médico tras un accidente o cirugía mayor.</p></div>
             </div>
         </div>
     </section>
@@ -371,7 +351,7 @@
                     
                     <div class="form-group">
                         <label class="form-label">Tu rango de edad:</label>
-                        <select name="Rango_Edad" class="form-select" required>
+                        <select name="Rango_Edad" class="form-select interaction-track" required>
                             <option value="" disabled selected>Seleccionar...</option>
                             <option value="25-30 años">25-30 años</option>
                             <option value="31-40 años">31-40 años</option>
@@ -381,7 +361,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Ingreso mensual aproximado:</label>
-                        <select name="Ingreso_Mensual" class="form-select" required>
+                        <select name="Ingreso_Mensual" class="form-select interaction-track" required>
                             <option value="" disabled selected>Seleccionar...</option>
                             <option value="Menos de 20k">Menos de 20k</option>
                             <option value="20k - 50k">20k - 50k</option>
@@ -390,7 +370,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Aportación mensual deseada:</label>
-                        <select name="Aportacion_Mensual" class="form-select" required>
+                        <select name="Aportacion_Mensual" class="form-select interaction-track" required>
                             <option value="" disabled selected>Seleccionar...</option>
                             <option value="2500 - 4000">2500 - 4000</option>
                             <option value="5000 - 8000">5000 - 8000</option>
@@ -407,15 +387,15 @@
                     
                     <div class="form-group">
                         <label class="form-label">Nombre completo:</label>
-                        <input type="text" name="Nombre_Completo" class="form-input" required placeholder="Ej. Juan Pérez">
+                        <input type="text" name="Nombre_Completo" class="form-input interaction-track" required placeholder="Ej. Juan Pérez">
                     </div>
                     <div class="form-group">
                         <label class="form-label">WhatsApp (10 dígitos):</label>
-                        <input type="tel" name="Whatsapp" class="form-input" required placeholder="Ej. 55 1234 5678">
+                        <input type="tel" name="Whatsapp" class="form-input interaction-track" required placeholder="Ej. 55 1234 5678">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Correo electrónico:</label>
-                        <input type="email" name="Email" class="form-input" required placeholder="ejemplo@correo.com">
+                        <input type="email" name="Email" class="form-input interaction-track" required placeholder="ejemplo@correo.com">
                     </div>
                     <div class="button-group">
                         <button type="button" class="cta-button btn-secondary" onclick="prevStep('modal', 2)"><i class="fas fa-arrow-left"></i> Atrás</button>
@@ -425,23 +405,25 @@
                 </div>
             </form>
 
-            <div class="success-message">
-                <i class="fas fa-check-circle"></i>
-                <h3>¡Información enviada!</h3>
-                <p>He recibido tus datos correctamente. En breve me pondré en contacto contigo por WhatsApp.</p>
-                <button onclick="cerrarModal()" class="cta-button" style="margin-top: 15px; width: 100%;">CERRAR VENTANA</button>
-            </div>
+            <div class="ghl-calendar-direct" id="calendar_container_modal"></div>
 
         </div>
     </div>
 
     <script>
-        // --- CONTROL DEL MODAL ---
+        // --- 1. RASTREADOR DE INTERACCIÓN (Evita que el pop-up salte si están escribiendo) ---
+        let userIsInteracting = false;
+        
+        document.querySelectorAll('.interaction-track').forEach(element => {
+            element.addEventListener('focus', () => { userIsInteracting = true; });
+            element.addEventListener('blur', () => { userIsInteracting = false; });
+        });
+
+        // --- 2. CONTROL DEL MODAL (A los 40 Segundos) ---
         let modalYaAbierto = false;
 
         function abrirModal(origen) {
             document.getElementById('leadModal').style.display = 'block';
-            
             if(origen === 'automatico') {
                 document.getElementById('tituloModalDinamico').innerText = '¡Espera! No te vayas sin cotizar.';
                 document.getElementById('tituloModalDinamico').style.color = 'var(--rojo-alerta)';
@@ -458,22 +440,19 @@
             document.getElementById('tituloModalDinamico').style.color = 'var(--azul-marino)';
         }
 
-        // Pop-up automático a los 30 segundos
+        // Pop-up a los 40 segundos EXACTOS (y solo si no están interactuando con otro formulario)
         setTimeout(function() {
-            if(!modalYaAbierto) {
+            if(!modalYaAbierto && !userIsInteracting) {
                 abrirModal('automatico');
             }
-        }, 30000);
+        }, 40000);
 
-        // Cerrar modal al hacer clic afuera
         window.onclick = function(event) {
             let modal = document.getElementById('leadModal');
-            if (event.target == modal) {
-                cerrarModal();
-            }
+            if (event.target == modal) { cerrarModal(); }
         }
 
-        // --- LÓGICA DE PASOS PARA AMBOS FORMULARIOS ---
+        // --- 3. LÓGICA DE PASOS ---
         function nextStep(prefix, currentStep) {
             const currentDiv = document.getElementById(`${prefix}Step${currentStep}`);
             const inputs = currentDiv.querySelectorAll('select, input');
@@ -499,7 +478,23 @@
             document.getElementById(`${prefix}Step${currentStep - 1}`).classList.add('active');
         }
 
-        // --- ENVÍO AJAX PARA TODOS LOS FORMULARIOS ---
+        // --- 4. CARGADOR DINÁMICO DEL CALENDARIO GHL (La Solución Experta) ---
+        function cargarCalendarioGHL(containerId) {
+            const container = document.getElementById(containerId);
+            container.style.display = 'block';
+            
+            // Inyectamos el HTML del Iframe
+            container.innerHTML = `
+                <iframe src="https://api.leadconnectorhq.com/widget/booking/H4VbD1EOZUUoskbof1yr" style="width: 100%; border:none; overflow: hidden; min-height: 550px;" scrolling="no" id="H4VbD1EOZUUoskbof1yr"></iframe>
+            `;
+            
+            // Inyectamos y ejecutamos el Script de GHL en ese momento exacto
+            const script = document.createElement('script');
+            script.src = "https://link.msgsndr.com/js/form_embed.js";
+            container.appendChild(script);
+        }
+
+        // --- 5. ENVÍO AJAX Y DISPARADOR ---
         const forms = document.querySelectorAll('.ajax-form');
         forms.forEach(form => {
             form.addEventListener('submit', function(e) {
@@ -519,10 +514,17 @@
                     if (response.ok) {
                         form.style.display = 'none';
                         const contenedorPrincipal = form.parentElement;
+                        
                         const headerTexto = contenedorPrincipal.querySelector('.form-header-text');
                         if(headerTexto) headerTexto.style.display = 'none';
                         
-                        contenedorPrincipal.querySelector('.success-message').style.display = 'block';
+                        // Determinar en qué contenedor inyectar (Hero o Modal)
+                        if (contenedorPrincipal.id === 'heroFormContainer') {
+                            cargarCalendarioGHL('calendar_container_hero');
+                        } else {
+                            cargarCalendarioGHL('calendar_container_modal');
+                        }
+                        
                     } else {
                         alert("Hubo un error al enviar tu información. Por favor intenta de nuevo.");
                         submitBtn.innerHTML = 'COTIZAR AHORA';
@@ -538,5 +540,4 @@
     </script>
 
 </body>
-
 </html>
